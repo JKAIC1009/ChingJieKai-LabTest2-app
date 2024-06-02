@@ -16,8 +16,8 @@
 
 
         <div class="search">
-            <input class="srch" type="search" name="" placeholder="Type To Find">
-            <a href="#"> <button class="btn">Find</button></a>
+            <input class="srch" type="search" v-model="searchTerm" placeholder="Type To Find">
+            <a href="#"> <button class="btn" @click="updateSearchTerm">Find</button></a>
         </div>
     </div>
 </template>
@@ -25,8 +25,18 @@
 
 <script>
 export default {
-    name: 'AppNavbar'
-}
+  name: 'AppNavbar',
+  data() {
+    return {
+      searchTerm: '',
+    };
+  },
+  watch: {
+    searchTerm(newTerm) {
+      this.$store.commit('setSearchTerm', newTerm);
+    },
+  },
+};
 </script>
 
 <style scoped>
