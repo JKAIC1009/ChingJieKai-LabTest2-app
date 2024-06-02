@@ -29,10 +29,10 @@ export default {
       const searchTerm = this.$store.state.searchTerm;
       return this.$store.state.photos.filter(photo => 
         photo.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        photo.id.toString() === searchTerm
+        photo.id.toString() === searchTerm //search function
       );
     }
-  },
+  }, 
   watch: {
     photos() {
       this.loading = false;
